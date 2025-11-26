@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  proxy-server:
+    build: .
+    ports:
+      - "3001:3001"
+    environment:
+      # It is strongly recommended to use a more secure way to manage secrets,
+      # such as Docker secrets or by providing the variable at runtime,
+      # rather than hardcoding it here.
+      - API_KEY=your-secret-api-key-from-compose
+    container_name: openai-proxy
+    restart: unless-stopped
