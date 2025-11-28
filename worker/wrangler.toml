@@ -1,0 +1,19 @@
+name = "gravity"
+main = "src/index.ts"
+compatibility_date = "2025-11-25"
+
+# KV Namespace for token caching
+# Run `npx wrangler kv namespace create TOKEN_CACHE` to get an ID
+[[kv_namespaces]]
+binding = "TOKEN_CACHE"
+id = "abc123def456"  # Replace with your actual ID
+
+[dev]
+ip = "0.0.0.0"
+port = 8787
+
+# Secrets (use wrangler secret put command)
+# Run: npx wrangler secret put API_KEY
+# Run: npx wrangler secret put ACCOUNTS
+# Format for ACCOUNTS: '[{"refresh_token":"TOKEN"}]'
+# Note: Only refresh_token is needed in ACCOUNTS. Access tokens are cached in KV.
